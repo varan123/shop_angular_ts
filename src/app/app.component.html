@@ -1,0 +1,12 @@
+<div>
+  <header><img class='logo' src='images/logo.png' alt='Logo' />Demo Shop v1 (Angulat, TS)</header>
+  <nav id="main_menu">
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+    <a routerLink="/cart" routerLinkActive="active">Cart({{ getCount() }})</a>
+  </nav>
+  <router-outlet></router-outlet>
+    <button (click)="increment()">add</button>
+
+
+</div>
