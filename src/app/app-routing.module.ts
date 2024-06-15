@@ -12,12 +12,9 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'cart', component: CartComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' },
-
-
-
-
+  { path: '**', redirectTo: '/home' }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
