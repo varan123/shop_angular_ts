@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CtxService } from './ctx.service';
 import data from './data/data.json';
 import { Product } from './product';
+import { CartLine } from './cart-line';
 
 
 @Component({
@@ -10,9 +11,9 @@ import { Product } from './product';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  //add ctxService
-  ctx: any = {};
-
+  cart: CartLine[] = [];
+  products: Product[] = [];
+  
   //add int counter
   counter: number = 0;
 
@@ -22,27 +23,25 @@ export class AppComponent {
   //add increment function
   increment() {
     this.counter++;
-    //get count from ctx
-    this.ctx.count = this.counter;
+    
   }
 
   getCount() {
-    return this.counter;
+    return this.ctxService.cart.length;
   }
-
-  
 
   title = 'shop_angular_v1';
 
   constructor(private ctxService: CtxService) {
-    this.ctx = ctxService.ctx;
-
     //parse json data loop
-    this.ctx.products = [];
+    this.products = [];
 
     for (let i = 0; i < this.products_json.length; i++) {
-      let product = this.products_json[i];
-      this.ctx.products.push(new Product(product.id, product.name, product.price, product.description, product.img));
+      let product_from_json = this.products_json[i];
+      let product: Product = new Product(product_from_json.id, product_from_json.name,
+        product_from_json.price, product_from_json.description, product_from_json.img);
+      this.products.push(product);
+      ctxService.addProduct(product);
     }
   }
 

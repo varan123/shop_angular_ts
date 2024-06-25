@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CtxService } from '../ctx.service';
+import { CartLine } from '../cart-line';
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +9,8 @@ import { CtxService } from '../ctx.service';
 })
 export class CartComponent {
 
-  //add ctxService
-  ctx: any = {};
+  //add cart
+  cart: CartLine[] = [];
 
   //add int counter
   counter = 0;
@@ -23,8 +24,8 @@ export class CartComponent {
 
 
   constructor(private ctxService: CtxService) {
-    this.ctx = ctxService.ctx;
-    this.counter = this.ctx.count;
+    this.cart = this.ctxService.cart;
+    this.counter = this.ctxService.cart.length;
   }
 
 

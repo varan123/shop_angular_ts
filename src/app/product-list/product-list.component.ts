@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CtxService } from '../ctx.service';
 import { Product } from '../product';
+import { CartLine } from '../cart-line';
 
 @Component({
   selector: 'app-product-list',
@@ -9,14 +10,11 @@ import { Product } from '../product';
 })
 export class ProductListComponent {
 
-  //add ctxService
-  ctx: any = {};
-
   //add products
-  products : Product[] = [];
+  products: Product[] = [];
 
   //add cart
-  cart = [];
+  cart: CartLine[] = [];
 
   //get products
   getProducts() {
@@ -25,14 +23,13 @@ export class ProductListComponent {
 
   //add to cart
   addToCart(product: Product) {
-
+    // add to cart 1 more product
+    this.ctxService.addToCart(product, 1);
   }
 
-
   constructor(private ctxService: CtxService) {
-    this.ctx = ctxService.ctx;
-    this.products = this.ctx.products;
-    
+    this.products = this.ctxService.products;
+    this.cart = this.ctxService.cart;    
   }
 
 }
