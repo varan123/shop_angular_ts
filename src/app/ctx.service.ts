@@ -40,6 +40,18 @@ export class CtxService {
     }
   }
 
+  setToCartByProductId(productId: number, quantity: number) {
+    let cartLine = this._cart.find(line => line.id === productId);
+    if (cartLine) {
+      cartLine.quantity = quantity;
+    } else {
+      let product = this._products.find(product => product.id === productId);
+      if (product) {
+        this._cart.push(new CartLine(product.id, product.name, product.price, product.description, product.imageUrl, quantity));
+      }
+    }
+  }
+
   deleteFromCartByProductId(productId: number) {
     this._cart = this._cart.filter(line => line.id !== productId);
   }

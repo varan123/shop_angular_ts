@@ -1,0 +1,47 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.productDescription {
+  display: flex;
+  align-items: center;
+}
+
+.productPrice {
+  font-weight: bold;
+}
+
+.productQuantity {
+  display: flex;
+  align-items: center;
+}
+
+.productQuantity input {
+  width: 2em;
+  margin: 0 0.5em;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.productQuantity button {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.cartTotal {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 1em;
+}
