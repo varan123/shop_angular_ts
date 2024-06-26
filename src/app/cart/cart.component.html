@@ -1,1 +1,10 @@
-<p>cart works! {{ getCount() }}</p>
+<div class="cart">
+  <div *ngFor="let item of cart" class="cartItem">
+    <h2>{{ item.name }}</h2>
+    <p class="productDescription">{{ item.description }}</p>
+    <p class="productPrice">Price: {{ item.price | currency }}</p>
+    <p class="productQuantity">Quantity: {{ item.quantity }}</p>
+    <button (click)="removeFromCart(item.id)">Remove from Cart</button>
+  </div>
+</div>
+

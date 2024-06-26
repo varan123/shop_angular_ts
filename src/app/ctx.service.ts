@@ -40,11 +40,8 @@ export class CtxService {
     }
   }
 
-  deleteFromCart(product: Product) {
-    let index = this._cart.findIndex(line => line.id === product.id);
-    if (index !== -1) {
-      this._cart.splice(index, 1);
-    }
+  deleteFromCartByProductId(productId: number) {
+    this._cart = this._cart.filter(line => line.id !== productId);
   }
   
   constructor() {

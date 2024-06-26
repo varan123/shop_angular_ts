@@ -12,21 +12,25 @@ export class CartComponent {
   //add cart
   cart: CartLine[] = [];
 
-  //add int counter
-  counter = 0;
-
-  //get counter
-  getCount() {
-    return this.counter;
+  //get cart
+  getCart() {
+    return this.cart;
   }
 
+  removeFromCart(productId: number) {
+    this.ctxService.deleteFromCartByProductId(productId);
+    this.updateCart();
+  }
 
-
-
+  updateCart() {
+    this.cart = this.ctxService.cart;
+  }
+  
   constructor(private ctxService: CtxService) {
     this.cart = this.ctxService.cart;
-    this.counter = this.ctxService.cart.length;
   }
+
+
 
 
 }
