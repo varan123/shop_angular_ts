@@ -5,43 +5,35 @@
   margin-top: 2em;
 }
 
-.cartItem {
-  display: flex;
-  justify-content: space-between;
+.cartTable {
   width: 100%;
-  margin-bottom: 1em;
+  max-width: 1200px;
+  border-collapse: collapse;
 }
 
-.productDescription {
-  display: flex;
-  align-items: center;
+.cartTable th {
+  background-color: #f9f9f9;
+  border: 1px solid black;
+  padding: 10px;
 }
 
-.productPrice {
-  font-weight: bold;
+.cartTable td {
+  border: 1px solid black;
+  padding: 10px;
 }
 
-.productQuantity {
-  display: flex;
-  align-items: center;
-}
-
-.productQuantity input {
-  width: 2em;
-  margin: 0 0.5em;
-  padding: 0.5em;
-  text-align: center;
-}
-
-.productQuantity button {
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
-  padding: 0.5em;
-  cursor: pointer;
+.cartTable img {
+  width: 100px;
+  height: 100px;
 }
 
 .cartTotal {
-  font-size: 1.5em;
-  font-weight: bold;
   margin-top: 1em;
+  font-size: 1.5em;
 }
+
+.cartTotal p {
+  margin: 0;
+}
+
+

@@ -9,6 +9,7 @@ export class CtxService {
 
   private _products: Product[] = [];
   private _cart: CartLine[] = [];
+  private _currentProduct: Product = new Product(0, '', 0, '', '');
 
   get products(): Product[] {
     return this._products;
@@ -16,6 +17,10 @@ export class CtxService {
 
   get cart(): CartLine[] {
     return this._cart;
+  }
+
+  get currentProduct(): Product {
+    return this._currentProduct;
   }
 
   addProduct(product: Product) {
@@ -29,6 +34,10 @@ export class CtxService {
     } else {
       this._cart.push(new CartLine(product.id, product.name, product.price, product.description, product.imageUrl, quantity));
     }
+  }
+
+  setCurrentProduct(product: Product) {
+    this._currentProduct = product;
   }
 
   setToCart(product: Product, quantity: number) {

@@ -1,1 +1,7 @@
-<p>product works!</p>
+<div class="product">
+  <img class="productImg" [src]="product.imageUrl" [alt]="product.name">
+  <h2>{{ product.name }}</h2>
+  <p class="productDescription">{{ product.description }}</p>
+  <p class="productPrice">Price: {{ product.price | currency }}</p>
+  <button (click)="addToCart()">Add to Cart</button>
+</div>

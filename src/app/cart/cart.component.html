@@ -1,15 +1,49 @@
 <div class="cart">
-  <div *ngFor="let item of cart" class="cartItem">
+  <table class="cartTable">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th></th>
+      </tr></thead>
+    <tbody>
+      <tr *ngFor="let item of cart" class="cartItem">
+        <td><img class="productImg" [src]="item.imageUrl" [alt]="item.name"></td>
+        <td>
+          <h2>{{ item.name }}</h2>
+          <p class="productDescription">{{ item.description }}</p>
+        </td>
+        <td class="productPrice">{{ item.price | currency }}</td>
+        <td class="productQuantity">
+          <input class="quantity" type="number" min="1" max="10" [(ngModel)]="item.quantity" (change)="updateCart()">
+        </td>
+        <td class="productTotal">{{ item.price * item.quantity | currency }}</td>
+        <td><button (click)="removeFromCart(item.id)">Remove from Cart</button></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">Total:</td>
+        <td>{{ getTotalPrice() | currency }}</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!--div *ngFor="let item of cart" class="cartItem">
     <h2>{{ item.name }}</h2>
     <p class="productDescription">{{ item.description }}</p>
     <p class="productPrice">Price: {{ item.price | currency }}</p>
     <p class="productQuantity">Quantity:
-      <input class="quantity" type="number" [(ngModel)]="item.quantity" (change)="updateCart()">
+      <input class="quantity" type="number" min="1" max="10" [(ngModel)]="item.quantity" (change)="updateCart()">
     </p>
     <button (click)="removeFromCart(item.id)">Remove from Cart</button>
   </div>
   <div class="cartTotal">
     <h2>Total: {{ getTotalPrice() | currency }}</h2>
-  </div>
+  </div-->
 </div>
 
